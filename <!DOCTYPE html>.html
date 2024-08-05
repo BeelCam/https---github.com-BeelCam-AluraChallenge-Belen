@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            color: #343a40;
+        }
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2.5em;
+            color: #007bff;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #555;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Encriptador de Texto</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="Ingrese el texto aquí..."></textarea><br><br>
+    <button onclick="encryptText()">Encriptar</button>
+    <button onclick="decryptText()">Desencriptar</button><br><br>
+    <textarea id="outputText" rows="4" cols="50" readonly></textarea><br><br>
+    <button onclick="copyText()">Copiar texto</button>
+
+    <footer>
+        Desarrollado por [Tu Nombre]
+    </footer>
+
+    <script>
+        function encryptText() {
+            let input = document.getElementById('inputText').value;
+            let encrypted = input.replace(/e/g, 'enter').replace(/i/g, 'imes').replace(/a/g, 'ai').replace(/o/g, 'ober').replace(/u/g, 'ufat');
+            document.getElementById('outputText').value = encrypted;
+        }
+
+        function decryptText() {
+            let input = document.getElementById('inputText').value;
+            let decrypted = input.replace(/enter/g, 'e').replace(/imes/g, 'i').replace(/ai/g, 'a').replace(/ober/g, 'o').replace(/ufat/g, 'u');
+            document.getElementById('outputText').value = decrypted;
+        }
+
+        function copyText() {
+            let output = document.getElementById('outputText');
+            output.select();
+            document.execCommand('copy');
+            alert('Texto copiado al portapapeles');
+        }
+    </script>
+</body>
+</html>
